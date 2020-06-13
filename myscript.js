@@ -86,7 +86,7 @@ var currentPlayer=1;
 var currentName=player1;
 var currentColor=player1Color;
 
-$('h3').text(player1+"it is your turn, pick a column to drop the chip in!");
+$('h3').text(player1+" it is your turn, pick a column to drop the chip in!");
 
 $('.board button').on('click',function(){
     var col=$(this).closest('td').index();
@@ -94,9 +94,11 @@ $('.board button').on('click',function(){
     changeColor(bottomAvail,col,currentColor);
 
     if(horizontalWinCheck()||verticalWinCheck()||diagonalWinCheck()){
-        $('h1').text(currentName+" You have won!")
-        $('h3').fadeOut(2000);
-        $('h2').fadeOut(2000);
+        $('h1').text(currentName+" You have won!");
+        
+        $('h2').text("Refresh your page to start again!");
+        $('h3').fadeOut(3000);
+        $('.board').fadeOut(3000);
     }
 
     currentPlayer=currentPlayer*-1;
